@@ -1,0 +1,30 @@
+<div id="formula-generator">
+  <!-- Title -->
+  <h1 id="tool-title">Spreadsheet Automation Formula Generator (Root URLs)</h1>
+
+  <!-- Data Center URL Section -->
+  <label for="data-center-url">Data Center URL</label>
+  <input type="text" id="data-center-url" placeholder="Enter Data Center URL">
+
+  <!-- Spreadsheet Tab Name Section -->
+  <label>Spreadsheet Tab Name</label>
+  <div class="radio-option">
+    <input type="radio" id="oldTab" name="spreadsheet-tab" value="Screaming Frog(OLD)">
+    <label for="oldTab">Screaming Frog(OLD)</label>
+  </div>
+  <div class="radio-option">
+    <input type="radio" id="newTab" name="spreadsheet-tab" value="Screaming Frog(NEW)">
+    <label for="newTab">Screaming Frog(NEW)</label>
+  </div>
+
+  <!-- Folders to Exclude Section -->
+  <label for="folders-to-exclude">Folders to Exclude</label>
+  <textarea id="folders-to-exclude" placeholder="Enter folders to exclude (separated by lines)"></textarea>
+
+  <!-- Buttons for generating and copying formula -->
+  <button id="generate-button">Generate Formula</button>
+  <button id="copy-button" style="display: none;">Copy Formula</button>
+
+  <!-- Output Area for the generated formula -->
+  <div id="output-area"></div>
+</div>
