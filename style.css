@@ -1,0 +1,102 @@
+#formula-generator {
+  font-family: Calibri, sans-serif;
+  font-size: 12px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#formula-generator label {
+  display: block;
+  margin-bottom: 10px; /* Increased bottom margin for labels */
+  color: #333;
+  font-size: 20px; /* Larger font size for section labels */
+  font-weight: bold;
+}
+
+#formula-generator .radio-option {
+  display: inline-block; /* Align radio buttons inline */
+  margin-right: 20px;
+  margin-bottom: 10px; /* Added bottom margin for radio options */
+}
+
+#formula-generator .radio-option label {
+  font-size: 12px; /* Smaller font size for radio button labels */
+  display: inline; /* Ensure label is inline with radio button */
+  margin-left: 5px;
+  font-weight: normal;
+}
+
+#formula-generator input[type='text'],
+#formula-generator textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px; /* Increased bottom margin for input and textarea */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#formula-generator input[type='radio'] {
+  cursor: pointer;
+}
+
+#formula-generator textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+#generate-button,
+#copy-button {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Increased top margin for buttons */
+}
+
+#generate-button {
+  background-color: #007bff;
+}
+
+#generate-button:hover {
+  background-color: #0056b3;
+}
+
+#copy-button {
+  display: none;
+  background-color: #28a745;
+}
+
+#copy-button:hover {
+  background-color: #218838;
+}
+
+#output-area {
+  margin-top: 20px; /* Increased top margin for output area */
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  word-wrap: break-word;
+}
+
+#tool-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px; /* Space between title and first section */
+  font-size: 24px; /* Larger font size for the title */
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 600px) {
+  #formula-generator {
+    width: 95%;
+    padding: 10px;
+  }
+}
