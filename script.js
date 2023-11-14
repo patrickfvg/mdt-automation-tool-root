@@ -1,38 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var generateButton = document.getElementById('generate-button');
-    var copyButton = document.getElementById('copy-button');
-    var dataCenterUrlInput = document.getElementById('data-center-url');
-    var foldersToExcludeInput = document.getElementById('folders-to-exclude');
-    var outputArea = document.getElementById('output-area');
+document.getElementById('generateFormula').addEventListener('click', function() {
+    var dataCenterUrl = document.getElementById('dataCenterUrl').value;
+    var spreadsheetTabName = document.querySelector('input[name="spreadsheetTabName"]:checked').value;
+    var foldersToExclude = document.getElementById('foldersToExclude').value;
 
-    if (!generateButton || !copyButton || !dataCenterUrlInput || !foldersToExcludeInput || !outputArea) {
-        console.error('One or more essential elements are missing in the HTML structure.');
-        return;
-    }
+    var formula = `=SORT(FILTER(IMPORTRANGE("${dataCenterUrl}", "${spreadsheetTabName}!A2:A"), NOT(REGEXMATCH(IMPORTRANGE("${dataCenterUrl}", "${spreadsheetTabName}!A2:A"), "${foldersToExclude}"))), 1, TRUE)`;
 
-    generateButton.addEventListener('click', function() {
-        var dataCenterUrl = dataCenterUrlInput.value.trim();
-        var tabInput = document.querySelector('input[name="spreadsheet-tab"]:checked');
-        var foldersToExclude = foldersToExcludeInput.value.trim().split('\n').join('|');
+    document.getElementById('formulaOutput').value = formula;
+});
 
-        if (!dataCenterUrl || !tabInput || !foldersToExclude) {
-            alert('Please fill in all required fields.');
-            return;
-        }
-
-        var tabName = tabInput.value;
-        var formula = `=SORT(FILTER(IMPORTRANGE("${dataCenterUrl}", "${tabName}!A2:A"), NOT(REGEXMATCH(IMPORTRANGE("${dataCenterUrl}", "${tabName}!A2:A"), "${foldersToExclude}"))), 1, TRUE)`;
-        
-        outputArea.textContent = formula;
-        copyButton.style.display = 'block';
-    });
-
-    copyButton.addEventListener('click', function() {
-        var formula = outputArea.textContent;
-        navigator.clipboard.writeText(formula).then(function() {
-            alert("Formula copied to clipboard!");
-        }, function(err) {
-            alert("Error in copying text: " + err);
-        });
-    });
+document.getElementById('copyFormula').addEventListener('click', function() {
+    var formulaOutput = document.getElementById('formulaOutput');
+    formulaOutput.select();
+    formulaOutput.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+    alert("Formula copied to clipboard!");
 });
